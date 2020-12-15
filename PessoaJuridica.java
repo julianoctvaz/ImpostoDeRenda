@@ -6,11 +6,13 @@ public class PessoaJuridica extends Pessoa implements Receitavel {
 	private double [] vendasDoAno;
 	private int cnpj;
 	
-	public PessoaJuridica(String nome, double rendaMensal, String dataDeNascimento, int cnpj, String nomeFantasia, double[] vendasDoAno) {
+	public PessoaJuridica(String nome, double rendaMensal, String dataDeNascimento, int cnpj, String nomeFantasia) {
 		super(nome, rendaMensal, dataDeNascimento);
 		this.cnpj = cnpj;
 		this.nomeFantasia = nomeFantasia;
-		this.vendasDoAno = vendasDoAno;
+		this.vendasDoAno = new double [12];
+		for(int i = 0; i<12; i++)
+			this.setVendaDoAno(i, super.getRendaMensal());
 	}
 
 	public int getCnpj() {
@@ -39,6 +41,10 @@ public class PessoaJuridica extends Pessoa implements Receitavel {
 		
 		
 	}
+	
+	public void setVendaDoAno(int mes, double novoValorVendaDoAno){
+		this.vendasDoAno[mes] = novoValorVendaDoAno;
+	} 
 
 	@Override
 	public void imprimeReceitaCompleta() {
