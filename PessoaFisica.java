@@ -7,11 +7,14 @@ public class PessoaFisica extends Pessoa implements Receitavel {
 	private double [] contraCheques;
 	private int cpf;
 	
-	public PessoaFisica(String nome, double rendaMensal, String dataDeNascimento, int cpf, String grauDeEscolaridade, double[] contraCheques) {
+	public PessoaFisica(String nome, double rendaMensal, String dataDeNascimento, int cpf, String grauDeEscolaridade) {
 		super(nome, rendaMensal, dataDeNascimento);
 		this.cpf = cpf;
 		this.grauDeEscolaridade = grauDeEscolaridade;
-		this.contraCheques = contraCheques;
+		this.contraCheques = new double [12];
+		for(int i = 0; i<12; i++)
+			this.setContraCheque(i, super.getRendaMensal());
+	
 	}
 
 	public int getcpf() {
@@ -40,6 +43,13 @@ public class PessoaFisica extends Pessoa implements Receitavel {
 		
 		
 	}
+	
+	
+
+	public void setContraCheque(int mes, double novoValorContracheque){
+		this.contraCheques[mes] = novoValorContracheque;
+	} 
+	
 
 	@Override
 	public void imprimeReceitaCompleta() {
