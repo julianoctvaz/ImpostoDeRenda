@@ -10,7 +10,7 @@ public abstract class Pessoa {
 	//construtor
 	
 	public Pessoa(String nome, double rendaMensal, String dataDeNascimento) {
-		super();
+	// super(); java lang object mother
 		this.nome = nome;
 		this.rendaMensal = rendaMensal;
 		this.dataDeNascimento = dataDeNascimento;
